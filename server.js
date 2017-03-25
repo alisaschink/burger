@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 
 // create app
-var app = express();
+var app = module.exports = express();
 var PORT = process.env.PORT || 3000;
 
 // bodyParser
