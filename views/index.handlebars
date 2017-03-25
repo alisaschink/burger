@@ -1,7 +1,34 @@
-views/actors/index.handlebars
 
+<h1> Eat-da-burger </h1>
 <br>
 
-{{#each burger}}
-  {{name}}, {{devoured}} <br><br>
-{{/each}}
+<!-------New Burger Form------->
+<h3 class="comment-header"> Add a Burger </h3>
+<form class="new-burger">
+  <div class="form-group">
+    <input placeholder="type text here" class="form-control burger-name" rows="1" name="burger-name"></input>
+    <br>
+    <button type="submit" class="btn btn-lg btn-primary submit burger-submit">Submit</button>
+  </div>
+</form>
+
+
+<!------Burger list------>
+<div class="col-sm-6 col-md-6 col-lg-6 burger-list"
+  {{#each burger}}
+    {{name}} 
+
+    <form action="/{{this.id}}?_method=PUT" method="POST">
+      <input type="hidden" name="devoured" value="true">
+      <button type="submit">eat!</button>
+    </form>
+
+  {{/each}}
+
+</div>
+
+<!------ Eaten Burger list------>
+<div class="col-sm-6 col-md-6 col-lg-6 eaten-list"
+
+</div>
+
